@@ -1,4 +1,4 @@
-# cdk commands:
+ # cdk commands:
 
 # Init CDK environment in AWS account
 cdk bootstrap
@@ -9,13 +9,14 @@ cdk init app --language typescript
 # Emits the synthesized CloudFormation template
 cdk synth
 
+# Show list of stacks in project
+cdk list
+
 # Deploy this stack to your default AWS account/region
 cdk deploy
 cdk deploy --all # Deploy all existing stacks in project
 cdk deploy MyStack # Deploy specific stack
 
-# Show list of stacks in project
-cdk list
 
 # Compare deployed stack with current state
 cdk diff

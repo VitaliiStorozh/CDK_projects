@@ -21,6 +21,7 @@
    > https://github.com/SwiftNextStep/aws-cdk-simple-app
 
    > cdk init - // Check availiable options
+
    > cdk init app --language=typescript
 
 6. **_Documentations_**
