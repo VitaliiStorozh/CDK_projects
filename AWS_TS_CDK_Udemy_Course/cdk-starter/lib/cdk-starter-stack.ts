@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Bucket, CfnBucket } from 'aws-cdk-lib/aws-s3';
-import { CfnOutput, Duration, Stack } from 'aws-cdk-lib';
+import { CfnOutput, CfnParameter, Duration, Stack } from 'aws-cdk-lib';
 
 class L3Bucket extends Construct {
   constructor(scope: Construct, id: string, expiration: number) {
@@ -35,11 +35,18 @@ export class CdkStarterStack extends Stack {
       },
     });
 
+    const duration = new CfnParameter(this, 'duration', {
+      type: 'Number',
+      default: 6,
+      minValue: 1,
+      maxValue: 10,
+    });
+
     const myL2Bucket = new Bucket(this, 'MyL2Bucket', {
       // bucketName: 'my-temp-bucket',
       lifecycleRules: [
         {
-          expiration: Duration.days(2),
+          expiration: Duration.days(duration.valueAsNumber),
         },
       ],
     });
