@@ -1,28 +1,25 @@
 import * as cdk from 'aws-cdk-lib';
-import {CfnOutput, Fn, Stack} from 'aws-cdk-lib';
+import { Fn, Stack } from 'aws-cdk-lib';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 
 export class PhotosStack extends Stack {
-  private stackSufix: string;
+  private stackSuffix: string;
+  public readonly photosBucketArn: string;
 
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    this.initializeStackSufix();
+    this.initializeStackSuffix();
 
     const photosBucket = new Bucket(this, 'PhotosBucket', {
-      bucketName: `photos-bucket-${this.stackSufix}`,
+      bucketName: `photos-bucket-${this.stackSuffix}`,
     });
-
-    new CfnOutput(this, 'photos-bucket', {
-        value: photosBucket.bucketArn,
-        exportName: 'photos-bucket',
-    })
+    this.photosBucketArn = photosBucket.bucketArn;
   }
 
-  private initializeStackSufix() {
-    const shortStacId = Fn.select(2, Fn.split('/', this.stackId));
-    this.stackSufix = Fn.select(4, Fn.split('-', shortStacId));
+  private initializeStackSuffix() {
+    const shortStackId = Fn.select(2, Fn.split('/', this.stackId));
+    this.stackSuffix = Fn.select(4, Fn.split('-', shortStackId));
   }
 }
