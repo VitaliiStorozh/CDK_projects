@@ -1,6 +1,6 @@
 import * as cdk from 'aws-cdk-lib';
 import {CfnOutput, Fn, Stack} from 'aws-cdk-lib';
-import { Bucket, CfnBucket } from 'aws-cdk-lib/aws-s3';
+import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { Construct } from 'constructs';
 
 export class PhotosStack extends Stack {
