@@ -62,4 +62,11 @@
 
 15. **_Clean context_**
 
-> cdk context --clear
+    > cdk context --clear
+
+16. **_Create project from scratch_**
+
+    > mkdir name_of_project
+    > cd name_of_project
+    > npm init -y
+    > npm install -D aws-cdk aws-cdk-lib constructs typescript ts-node @types/node

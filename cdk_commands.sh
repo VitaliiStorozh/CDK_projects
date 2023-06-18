@@ -36,3 +36,17 @@ cdk deploy --parameters duration=2
 cdk deploy --exclusively service
 cdk deploy --exclusively rds
 
+# Create project from scratch
+
+mkdir name_of_project
+cd name_of_project
+npm init -y
+# -D means that we install it as a dev dependency
+npm install -D aws-cdk aws-cdk-lib constructs typescript ts-node @types/node
+mkdir src
+mkdir src/infra
+touch src/infra/Launcher.ts
+mkdir src/infra/stacks
+touch src/infra/stacks/DataStack.ts
+touch cdk.json
+touch tsconfig.json
