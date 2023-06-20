@@ -1,4 +1,10 @@
 
 
-GET https://snbghc2upb.execute-api.us-east-1.amazonaws.com/prod/spaces
+GET  https://fsw75as8ih.execute-api.us-east-1.amazonaws.com/prod/spaces
+###
+
+POST https://fsw75as8ih.execute-api.us-east-1.amazonaws.com/prod/spaces
+###
+
+PUT https://fsw75as8ih.execute-api.us-east-1.amazonaws.com/prod
 ###
