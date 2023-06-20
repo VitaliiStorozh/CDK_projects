@@ -1,16 +1,26 @@
-import {APIGatewayProxyEvent, APIGatewayProxyResult, Context} from "aws-lambda";
-import {v4} from "uuid";
+import {
+  APIGatewayProxyEvent,
+  APIGatewayProxyResult,
+  Context,
+} from 'aws-lambda';
+import { v4 } from 'uuid';
+import { S3Client, ListBucketsCommand } from '@aws-sdk/client-s3';
 
+const s3Client = new S3Client({});
 
+async function handler(event: APIGatewayProxyEvent, context: Context) {
+  const command = new ListBucketsCommand({});
+  const listBucketResult = (await s3Client.send(command)).Buckets;
 
-async function handler(event: APIGatewayProxyEvent, context: Context){
   const response: APIGatewayProxyResult = {
     statusCode: 200,
-    body: JSON.stringify( 'Hello from Lambda, this is the id: ' + v4())
-  }
-  console.log('event: ', event)
+    body: JSON.stringify(
+      'Hello from Lambda, this is the id: ' + JSON.stringify(listBucketResult)
+    ),
+  };
+  console.log('event: ', event);
 
   return response;
 }
 
-export {handler}
+export { handler };
