@@ -22,3 +22,16 @@ handler(
 //     } as any,
 //     {} as any
 // );
+
+// handler(
+//   {
+//     httpMethod: 'PUT',
+//     queryStringParameters: {
+//       id: 'f628baed-b16f-42ba-9e7a-db9257af63f2',
+//     },
+//     body: JSON.stringify({
+//       location: 'Vienna-updated',
+//     }),
+//   } as any,
+//   {} as any
+// );

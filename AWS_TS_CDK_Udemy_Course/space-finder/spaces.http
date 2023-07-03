@@ -1,8 +1,4 @@
 
-
-GET  https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
-###
-
 POST https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
 content-type: application/json
 
@@ -11,5 +7,13 @@ content-type: application/json
  }
 ###
 
-GET https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces/ad0c8a11-cf98-4191-b843-baeb4b6ebbe6
+GET https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
+###
+
+PUT https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
+content-type: application/json
+
+ {
+    "location": "Kyiv"
+ }
 ###
