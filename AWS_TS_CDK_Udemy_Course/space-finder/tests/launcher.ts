@@ -7,11 +7,18 @@ handler(
   {
     httpMethod: 'GET',
     queryStringParameters: {
-      id: 'ad0c8a11-cf98-4191-b843-baeb4b6ebbe6',
+      id: 'f628baed-b16f-42ba-9e7a-db9257af63f2',
     },
-    // body: JSON.stringify({
-    //   location: 'Dublin',
-    // }),
   } as any,
   {} as any
 );
+
+// handler(
+//     {
+//         httpMethod: 'POST',
+//         body: JSON.stringify({
+//           location: 'Vienna',
+//         }),
+//     } as any,
+//     {} as any
+// );
