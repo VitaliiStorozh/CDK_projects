@@ -6,9 +6,9 @@ process.env.TABLE_NAME = 'SpaceTable-0e727129acdb';
 handler(
   {
     httpMethod: 'GET',
-    queryStringParameters: {
-      id: 'f628baed-b16f-42ba-9e7a-db9257af63f2',
-    },
+    // queryStringParameters: {
+    //   id: 'f628baed-b16f-42ba-9e7a-db9257af63f2',
+    // },
   } as any,
   {} as any
 );
@@ -34,4 +34,14 @@ handler(
 //     }),
 //   } as any,
 //   {} as any
+// );
+//
+// handler(
+//     {
+//         httpMethod: 'DELETE',
+//         queryStringParameters: {
+//             id: 'f628baed-b16f-42ba-9e7a-db9257af63f2',
+//         },
+//     } as any,
+//     {} as any
 // );

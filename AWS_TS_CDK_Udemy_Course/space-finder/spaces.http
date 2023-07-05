@@ -7,10 +7,13 @@ content-type: application/json
  }
 ###
 
-GET https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
+GET https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=23432
 ###
 
-PUT https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
+DELETE https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=23432
+###
+
+PUT https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=23432
 content-type: application/json
 
  {
