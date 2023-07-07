@@ -1,22 +1,26 @@
 
+GET https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
+###
+
 POST https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
 content-type: application/json
 
  {
-    "location": "Kyiv"
+    "location": "Vilnus",
+      "name": "Lituania"
  }
 ###
 
-GET https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=23432
+GET https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=3502aea5-aecd-41b2-b714-80ffa4f79aec
 ###
 
-DELETE https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=23432
+DELETE https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=ad0c8a11-cf98-4191-b843-baeb4b6ebbe6
 ###
 
-PUT https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=23432
+PUT https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=bf818b03-dded-4f9b-8622-309ae81673a6
 content-type: application/json
 
  {
-    "location": "Kyiv"
+      "name": "Ukraine"
  }
 ###
