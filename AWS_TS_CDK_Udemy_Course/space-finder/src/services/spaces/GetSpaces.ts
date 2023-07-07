@@ -3,8 +3,8 @@ import {
   GetItemCommand,
   ScanCommand,
 } from '@aws-sdk/client-dynamodb';
+import { unmarshall } from '@aws-sdk/util-dynamodb';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import {unmarshall} from "@aws-sdk/util-dynamodb";
 
 export async function getSpaces(
   event: APIGatewayProxyEvent,
@@ -17,15 +17,15 @@ export async function getSpaces(
         new GetItemCommand({
           TableName: process.env.TABLE_NAME,
           Key: {
-            'id': { S: spaceId },
+            id: { S: spaceId },
           },
         })
       );
       if (getItemResponse.Item) {
-        const unmarshalledItem = unmarshall(getItemResponse.Item);
+        const unmashalledItem = unmarshall(getItemResponse.Item);
         return {
           statusCode: 200,
-          body: JSON.stringify(unmarshalledItem),
+          body: JSON.stringify(unmashalledItem),
         };
       } else {
         return {
@@ -36,7 +36,7 @@ export async function getSpaces(
     } else {
       return {
         statusCode: 400,
-        body: JSON.stringify({ message: 'ID required!' }),
+        body: JSON.stringify('Id required!'),
       };
     }
   }
@@ -46,11 +46,11 @@ export async function getSpaces(
       TableName: process.env.TABLE_NAME,
     })
   );
-  const unmarshalledItems = result.Items?.map((item) => unmarshall(item));
-  console.log(unmarshalledItems);
+  const unmashalledItems = result.Items?.map(item => unmarshall(item));
+  console.log(unmashalledItems);
 
   return {
     statusCode: 201,
-    body: JSON.stringify(unmarshalledItems),
+    body: JSON.stringify(unmashalledItems),
   };
 }

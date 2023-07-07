@@ -1,11 +1,5 @@
-import {
-  DynamoDBClient,
-  GetItemCommand,
-  ScanCommand,
-  UpdateItemCommand,
-} from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient, UpdateItemCommand } from '@aws-sdk/client-dynamodb';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { unmarshall } from '@aws-sdk/util-dynamodb';
 
 export async function updateSpace(
   event: APIGatewayProxyEvent,
@@ -47,6 +41,6 @@ export async function updateSpace(
   }
   return {
     statusCode: 400,
-    body: JSON.stringify('ID required!'),
+    body: JSON.stringify('Please provide right args!!'),
   };
 }

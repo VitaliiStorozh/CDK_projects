@@ -6,8 +6,9 @@ import {
 } from 'aws-lambda';
 import { postSpaces } from './PostSpaces';
 import { getSpaces } from './GetSpaces';
-import { updateSpace } from './UpdateSpaces';
-import {deleteSpace} from "./DeleteSpace";
+import { updateSpace } from './UpdateSpace';
+import { deleteSpace } from './DeleteSpace';
+import { MissingFieldError } from '../shared/Validator';
 
 const ddbClient = new DynamoDBClient({});
 
@@ -38,10 +39,15 @@ async function handler(
         break;
     }
   } catch (error) {
-    console.error(error);
+    if (error instanceof MissingFieldError) {
+      return {
+        statusCode: 400,
+        body: error.message,
+      };
+    }
     return {
       statusCode: 500,
-      body: JSON.stringify(error.message),
+      body: error.message,
     };
   }
 

@@ -1,6 +1,7 @@
 import {
-    DeleteItemCommand,
-    DynamoDBClient,
+  DeleteItemCommand,
+  DynamoDBClient,
+  UpdateItemCommand,
 } from '@aws-sdk/client-dynamodb';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
@@ -8,10 +9,7 @@ export async function deleteSpace(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
-  if (
-    event.queryStringParameters &&
-    ('id' in event.queryStringParameters)) {
-
+  if (event.queryStringParameters && 'id' in event.queryStringParameters) {
     const spaceId = event.queryStringParameters['id'];
 
     await ddbClient.send(
@@ -25,11 +23,11 @@ export async function deleteSpace(
 
     return {
       statusCode: 200,
-      body: JSON.stringify(`Deleted item with ID ${spaceId}`),
+      body: JSON.stringify(`Deleted space with id ${spaceId}`),
     };
   }
   return {
     statusCode: 400,
-    body: JSON.stringify('ID required!'),
+    body: JSON.stringify('Please provide right args!!'),
   };
 }
