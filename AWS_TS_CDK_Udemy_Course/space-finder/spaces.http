@@ -1,8 +1,15 @@
 
-GET https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
+@url = https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/
+
+@token = eyJraWQiOiJldVIxYXA4eVpSM1JsMHArRDhLZkZSSVhYRFJpbTNLN1pBaHM5ZzhiWmVZPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIzNWU4Y2YzZS04NjA4LTQ1NDEtOWYwZS1mMmQzNzMxYzQzNzgiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9ScTFQRk41U0EiLCJjb2duaXRvOnVzZXJuYW1lIjoidnZzdG9yIiwib3JpZ2luX2p0aSI6IjZhMmU4NzZiLWVkYmMtNGVkYy05OTE5LThkYmIxOTU4MmY0ZSIsImF1ZCI6IjVoYzhqdWNzaGw1czZ2bWZlZGtsNWE3cWVtIiwiZXZlbnRfaWQiOiJhNDFjYWQ3Mi02MjdmLTRjMDMtOGNkNS0wMTZjMzUwMGIxYTkiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTY4OTUzMzA2MywiZXhwIjoxNjg5NTM2NjYzLCJpYXQiOjE2ODk1MzMwNjMsImp0aSI6IjQ4OTExOTUwLWM4OWItNGE2NS1hN2Y4LTk4OGE2N2M3MjVmYiIsImVtYWlsIjoidnZzdG9yQGdtYWlsLmNvbSJ9.Xpdl_E3JzAQrJgWEhU5SUaFfH1nIE61d8jLscojKe1IZigPyx3vZfJgvM6aQ59_uuBhdiP97JtG-Ms60OBFQVJ29F_sGEzydsHLWiQMZc40wpT2mAelS7AEtafOi15wkDsnJ2I72bc2EMwzTp9qjd3CdW07qVikE9n1-5DKDFfkw0xvSmOftUM0n6ld5SHhK51hz2kvWx82u_jueFgoiQon4IZuG7MJBjcTHpzMMyhSmuYw4l1idzHjOSA_n10XiHAIVAEkX2U4TKMNLDX1S6qN18RaBU_hg5qKR0vf5HSN8fs_oYyJVxQH7yZ4Gx3bkPXATIzn8SEfN1K3gvBshhA
+
+
+GET {{url}}/spaces
+Authorization: {{token}}
 ###
 
-POST https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces
+POST {{url}}/spaces
+Authorization: {{token}}
 content-type: application/json
 
  {
@@ -11,13 +18,16 @@ content-type: application/json
  }
 ###
 
-GET https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=3502aea5-aecd-41b2-b714-80ffa4f79aec
+GET {{url}}/spaces?id=3502aea5-aecd-41b2-b714-80ffa4f79aec
+Authorization: {{token}}
 ###
 
-DELETE https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=ad0c8a11-cf98-4191-b843-baeb4b6ebbe6
+DELETE {{url}}/spaces?id=472e8bcb-fe16-4fbe-9cca-111d1a4ab254
+Authorization: {{token}}
 ###
 
-PUT https://qo0z1jwsgi.execute-api.us-east-1.amazonaws.com/prod/spaces?id=bf818b03-dded-4f9b-8622-309ae81673a6
+PUT {{url}}/spaces?id=bf818b03-dded-4f9b-8622-309ae81673a6
+Authorization: {{token}}
 content-type: application/json
 
  {
