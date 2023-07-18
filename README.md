@@ -60,11 +60,15 @@
 
     > cdk deploy --parameters duration=2
 
-15. **_Clean context_**
+15. **_Save outputs from stack to file_**
+
+    > cdk deploy --all --outputs-file outputs.json
+
+16. **_Clean context_**
 
     > cdk context --clear
 
-16. **_Create project from scratch_**
+17. **_Create project from scratch_**
 
     > mkdir name_of_project
     > cd name_of_project

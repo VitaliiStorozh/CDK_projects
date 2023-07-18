@@ -17,6 +17,8 @@ cdk deploy
 cdk deploy --all # Deploy all existing stacks in project
 cdk deploy MyStack # Deploy specific stack
 
+# Save outputs from stack to file
+cdk deploy --all --outputs-file outputs.json
 
 # Compare deployed stack with current state
 cdk diff
