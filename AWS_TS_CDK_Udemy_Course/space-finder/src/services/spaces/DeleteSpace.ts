@@ -1,7 +1,6 @@
 import {
   DeleteItemCommand,
   DynamoDBClient,
-  UpdateItemCommand,
 } from '@aws-sdk/client-dynamodb';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { hasAdminGroup } from '../shared/Utils';
@@ -10,11 +9,10 @@ export async function deleteSpace(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
-  const isAuthorized = hasAdminGroup(event);
-  if (!isAuthorized) {
+  if (!hasAdminGroup(event)) {
     return {
-      statusCode: 403,
-      body: JSON.stringify('You are not authorized to perform this action!'),
+      statusCode: 401,
+      body: JSON.stringify(`Not authorized!`),
     };
   }
 

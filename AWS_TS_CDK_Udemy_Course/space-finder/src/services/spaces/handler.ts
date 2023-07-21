@@ -9,7 +9,7 @@ import { getSpaces } from './GetSpaces';
 import { updateSpace } from './UpdateSpace';
 import { deleteSpace } from './DeleteSpace';
 import { JsonError, MissingFieldError } from '../shared/Validator';
-import { addCorsHeaders } from '../shared/Utils';
+import { addCorsHeader } from '../shared/Utils';
 
 const ddbClient = new DynamoDBClient({});
 
@@ -58,7 +58,7 @@ async function handler(
       body: error.message,
     };
   }
-  addCorsHeaders(response);
+  addCorsHeader(response);
   return response;
 }
 

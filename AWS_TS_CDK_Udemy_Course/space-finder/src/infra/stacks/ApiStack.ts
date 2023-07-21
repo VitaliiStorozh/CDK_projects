@@ -4,7 +4,6 @@ import {
   CognitoUserPoolsAuthorizer,
   Cors,
   LambdaIntegration,
-  Method,
   MethodOptions,
   ResourceOptions,
   RestApi,
@@ -40,14 +39,14 @@ export class ApiStack extends Stack {
       },
     };
 
-    const optionWithCors: ResourceOptions = {
+    const optionsWithCors: ResourceOptions = {
       defaultCorsPreflightOptions: {
         allowOrigins: Cors.ALL_ORIGINS,
         allowMethods: Cors.ALL_METHODS,
       },
     };
 
-    const spacesResource = api.root.addResource('spaces', optionWithCors);
+    const spacesResource = api.root.addResource('spaces', optionsWithCors);
     spacesResource.addMethod(
       'GET',
       props.spacesLambdaIntegration,
