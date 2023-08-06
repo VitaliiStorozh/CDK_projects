@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "deploy": "cdk deploy --all --outputs-file outputs.json --require-approval never"
   },
   "keywords": [],
