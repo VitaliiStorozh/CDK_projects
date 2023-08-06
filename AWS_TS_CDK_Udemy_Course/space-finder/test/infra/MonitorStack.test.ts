@@ -1,6 +1,6 @@
 import { App } from 'aws-cdk-lib';
 import { MonitorStack } from '../../src/infra/stacks/MonitorStack';
-import { Match, Template } from 'aws-cdk-lib/assertions';
+import { Capture, Match, Template } from 'aws-cdk-lib/assertions';
 
 describe('Initial test suit', () => {
   let monitorStackTemplate: Template;
@@ -55,5 +55,18 @@ describe('Initial test suit', () => {
         'Fn::GetAtt': [lambdaName, 'Arn'],
       },
     });
+  });
+
+  test('Alarm actions', () => {
+    const alarmActionsCapture = new Capture();
+    monitorStackTemplate.hasResourceProperties('AWS::CloudWatch::Alarm', {
+      AlarmActions: alarmActionsCapture,
+    });
+
+    expect(alarmActionsCapture.asArray()).toEqual([
+      {
+        Ref: expect.stringMatching(/^AlarmTopic/),
+      },
+    ]);
   });
 });
