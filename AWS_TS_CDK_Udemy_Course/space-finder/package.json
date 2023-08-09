@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test-services": "jest --config jest.services.config.ts --coverage",
+    "test-infra": "jest --config jest.infra.config.ts --coverage",
+    "test": "npm run test-services && npm run test-infra",
     "deploy": "cdk deploy --all --outputs-file outputs.json --require-approval never"
   },
   "keywords": [],
