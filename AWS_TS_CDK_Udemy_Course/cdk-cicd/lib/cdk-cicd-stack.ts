@@ -25,7 +25,7 @@ export class CdkCicdStack extends cdk.Stack {
 
         testStage.addPre(new CodeBuildStep('unit-tests', {
             commands: [
-                'cd cdk-cicd',
+                'cd AWS_TS_CDK_Udemy_Course/cdk-cicd',
                 'npm ci',
                 'npm run test'
             ],
